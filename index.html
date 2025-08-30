@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Header with navigation -->
+        <header class="flex justify-between items-center py-4 mb-6">
+            <h1 class="text-2xl font-bold"><a href="#" id="home-link" style="text-decoration: none; color: var(--secondary-color);">My Blog</a></h1>
+            <button class="btn btn-primary" id="add-blog-btn">Create Blog</button>
+        </header>
+
+        <!-- Main content area -->
+        <main>
+            <!-- Mood Tracker Interactive Element -->
+            <section id="mood-tracker-view">
+                <h2>How are you feeling today?</h2>
+                <div class="mood-container">
+                    <button class="mood-btn" data-mood="happy">😊 Happy</button>
+                    <button class="mood-btn" data-mood="inspired">🤩 Inspired</button>
+                    <button class="mood-btn" data-mood="curious">🤔 Curious</button>
+                    <button class="mood-btn" data-mood="calm">😌 Calm</button>
+                </div>
+                <p id="mood-response" class="mood-response"></p>
+            </section>
+            
+            <!-- Blog List View (Home Page) -->
+            <section id="blog-list-view">
+                <h2>Recent Posts</h2>
+                <div id="blog-list" class="flex flex-col gap-4">
+                    <!-- Blog items will be dynamically inserted here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Create/Edit Blog View -->
+            <section id="create-edit-view" class="hidden">
+                <div class="p-6 rounded-lg shadow-md bg-white">
+                    <h2 id="form-title">Create New Blog</h2>
+                    <form id="blog-form">
+                        <input type="hidden" id="blog-id">
+                        <div class="form-group">
+                            <label for="blog-title">Title</label>
+                            <input type="text" id="blog-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="blog-content">Content</label>
+                            <textarea id="blog-content" required></textarea>
+                        </div>
+                        <div class="flex gap-4">
+                            <button type="submit" class="btn btn-primary">Save Blog</button>
+                            <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Blog Detail View -->
+            <section id="blog-detail-view" class="hidden">
+                <div class="p-6 rounded-lg shadow-md bg-white">
+                    <h2 id="detail-title"></h2>
+                    <p class="text-color-light" id="detail-date"></p>
+                    <div id="detail-content" class="content mt-4"></div>
+                    <div class="flex gap-4 mt-6">
+                        <button class="btn btn-secondary" id="back-btn">Back to List</button>
+                        <button class="btn btn-primary" id="edit-blog-btn">Edit Blog</button>
+                        <button class="btn btn-secondary" id="delete-blog-btn">Delete Blog</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Message box for notifications -->
+        <div id="message-box" class="message-box"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
